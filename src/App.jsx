@@ -48,15 +48,20 @@ function App() {
 
   return ready ? (
     <div className="App">
+      <h1>Gifmakr</h1>
       {video && (
         <video controls width="250" src={URL.createObjectURL(video)}></video>
       )}
       <input type="file" onChange={(e) => setVideo(e.target.files?.item(0))} />
-      <h3>Result</h3>
 
       <button onClick={convertToGif}>Convert</button>
 
-      {gif && <img src={gif} />}
+      {gif && (
+        <>
+          <h3>Result</h3>
+          <img src={gif} />
+        </>
+      )}
     </div>
   ) : (
     <p>Loading...</p>
